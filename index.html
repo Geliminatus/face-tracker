@@ -16,12 +16,16 @@
     <div class="stage">
       <video id="video" autoplay playsinline muted></video>
       <canvas id="overlay"></canvas>
+      <div id="recIndicator" class="rec-indicator" hidden>
+        <span class="rec-dot"></span><span id="recTime">0:00</span>
+      </div>
       <div id="status" class="status">Click “Start camera” to begin</div>
     </div>
 
     <div class="controls">
       <button id="startBtn">Start camera</button>
       <button id="stopBtn" disabled>Stop</button>
+      <button id="recordBtn" class="record-btn" disabled>● Record</button>
 
       <label class="toggle">
         <input type="checkbox" id="meshToggle" checked />
@@ -53,7 +57,26 @@
         <div class="bar"><div id="blinkRightBar" class="fill"></div></div>
       </div>
     </div>
+    <section class="gallery-section">
+      <div class="gallery-header">
+        <h2>Saved recordings</h2>
+        <span id="galleryCount" class="gallery-count">0</span>
+      </div>
+      <p id="galleryEmpty" class="gallery-empty">
+        No recordings yet. Start the camera and hit Record.
+      </p>
+      <div id="gallery" class="gallery"></div>
+    </section>
   </main>
+
+  <div id="playerModal" class="modal" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-body">
+      <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+      <video id="playerVideo" controls></video>
+      <div id="playerMeta" class="player-meta"></div>
+    </div>
+  </div>
 
   <script type="module" src="app.js"></script>
 </body>
