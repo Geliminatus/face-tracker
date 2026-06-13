@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Face Tracker</h1>
+    <p class="subtitle">Real-time face landmark tracking in your browser</p>
+  </header>
+
+  <main>
+    <div class="stage">
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="overlay"></canvas>
+      <div id="status" class="status">Click “Start camera” to begin</div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn">Start camera</button>
+      <button id="stopBtn" disabled>Stop</button>
+
+      <label class="toggle">
+        <input type="checkbox" id="meshToggle" checked />
+        Face mesh
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="boxToggle" checked />
+        Bounding box
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="mirrorToggle" checked />
+        Mirror
+      </label>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="label">Faces</span><span id="faceCount">0</span></div>
+      <div class="stat"><span class="label">FPS</span><span id="fps">0</span></div>
+      <div class="stat blendshape">
+        <span class="label">Smile</span>
+        <div class="bar"><div id="smileBar" class="fill"></div></div>
+      </div>
+      <div class="stat blendshape">
+        <span class="label">Left blink</span>
+        <div class="bar"><div id="blinkLeftBar" class="fill"></div></div>
+      </div>
+      <div class="stat blendshape">
+        <span class="label">Right blink</span>
+        <div class="bar"><div id="blinkRightBar" class="fill"></div></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
